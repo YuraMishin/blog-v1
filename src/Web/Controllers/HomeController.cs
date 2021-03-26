@@ -1,5 +1,7 @@
+using System.Threading.Tasks;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
+using Persistence;
 
 namespace Web.Controllers
 {
@@ -8,6 +10,17 @@ namespace Web.Controllers
   /// </summary>
   public class HomeController : Controller
   {
+    private readonly AppDbContext _ctx;
+
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    /// <param name="ctx">ctx</param>
+    public HomeController(AppDbContext ctx)
+    {
+      _ctx = ctx;
+    }
+
     /// <summary>
     /// Method displays index UI.
     /// GET: /
@@ -46,8 +59,11 @@ namespace Web.Controllers
     /// <param name="post">post</param>
     /// <returns>IActionResult</returns>
     [HttpPost]
-    public IActionResult Edit(Post post)
+    public async Task<IActionResult> Edit(Post post)
     {
+      _ctx.Posts.Add(post);
+      await _ctx.SaveChangesAsync();
+
       return RedirectToAction("Index");
     }
   }
