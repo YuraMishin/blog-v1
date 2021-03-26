@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Web</name>
+    </assembly>
+    <members>
+        <member name="T:Web.Startup">
+            <summary>
+            Class Startup.
+            Implements initial settings
+            </summary>
+        </member>
+        <member name="F:Web.Startup._configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="F:Web.Startup._env">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Web.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="configuration">configuration</param>
+            <param name="env">env</param>
+        </member>
+        <member name="M:Web.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Method gets called by the runtime to add services to the container
+            </summary>
+            <param name="services">services</param>
+        </member>
+        <member name="M:Web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.Extensions.Logging.ILogger{Web.Startup})">
+            <summary>
+            Method gets called by the runtime to configure the HTTP request pipeline
+            </summary>
+            <param name="app">app</param>
+            <param name="logger">logger</param>
+        </member>
+    </members>
+</doc>
