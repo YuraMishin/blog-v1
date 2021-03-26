@@ -4,6 +4,42 @@
         <name>Web</name>
     </assembly>
     <members>
+        <member name="T:Web.Controllers.HomeController">
+            <summary>
+            Сlass HomeController
+            </summary>
+        </member>
+        <member name="M:Web.Controllers.HomeController.Index">
+            <summary>
+            Method displays index UI
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.HomeController.Post">
+            <summary>
+            Method displays post UI
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Program">
+            <summary>
+            Class Program.
+            Implements the main app class
+            </summary>
+        </member>
+        <member name="M:Web.Program.Main(System.String[])">
+            <summary>
+            App entry point
+            </summary>
+            <param name="args">args</param>
+        </member>
+        <member name="M:Web.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Method bootstraps the app
+            </summary>
+            <param name="args">args</param>
+            <returns>IHostBuilder</returns>
+        </member>
         <member name="T:Web.Startup">
             <summary>
             Class Startup.
