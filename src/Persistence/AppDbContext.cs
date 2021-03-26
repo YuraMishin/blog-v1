@@ -1,3 +1,4 @@
+using Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence
@@ -16,7 +17,10 @@ namespace Persistence
     { }
 
     #region DB Tables
-
+    /// <summary>
+    /// Posts
+    /// </summary>
+    public DbSet<Post> Posts { get; set; }
     #endregion
   }
 }

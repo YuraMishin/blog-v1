@@ -8,7 +8,7 @@ namespace Persistence.Migrations
   public partial class Initial : Migration
   {
     /// <summary>
-    /// Method perfroms migration
+    /// Method performs migration
     /// </summary>
     /// <param name="migrationBuilder">migrationBuilder</param>
     protected override void Up(MigrationBuilder migrationBuilder)

@@ -15,6 +15,11 @@
             </summary>
             <param name="options">options</param>
         </member>
+        <member name="P:Persistence.AppDbContext.Posts">
+            <summary>
+            Posts
+            </summary>
+        </member>
         <member name="T:Persistence.Migrations.Initial">
             <summary>
             Class Initial
