@@ -9,6 +9,12 @@
             Сlass HomeController
             </summary>
         </member>
+        <member name="M:Web.Controllers.HomeController.#ctor(Application.Repository.IRepository)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="repo">repo</param>
+        </member>
         <member name="M:Web.Controllers.HomeController.Index">
             <summary>
             Method displays index UI.

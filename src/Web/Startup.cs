@@ -1,3 +1,4 @@
+using Application.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -52,6 +53,9 @@ namespace Web
             _configuration.GetConnectionString("MyBlog"));
         });
       #endregion
+
+      //Dependency Injection
+      services.AddTransient<IRepository, Repository>();
 
       services.AddControllersWithViews();
     }

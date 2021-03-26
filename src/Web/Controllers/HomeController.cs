@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
+using Application.Repository;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
-using Persistence;
 
 namespace Web.Controllers
 {
@@ -10,15 +10,15 @@ namespace Web.Controllers
   /// </summary>
   public class HomeController : Controller
   {
-    private readonly AppDbContext _ctx;
+    private readonly IRepository _repo;
 
     /// <summary>
     /// Constructor
     /// </summary>
-    /// <param name="ctx">ctx</param>
-    public HomeController(AppDbContext ctx)
+    /// <param name="repo">repo</param>
+    public HomeController(IRepository repo)
     {
-      _ctx = ctx;
+      _repo = repo;
     }
 
     /// <summary>
@@ -61,10 +61,12 @@ namespace Web.Controllers
     [HttpPost]
     public async Task<IActionResult> Edit(Post post)
     {
-      _ctx.Posts.Add(post);
-      await _ctx.SaveChangesAsync();
-
-      return RedirectToAction("Index");
+      _repo.CreatePost(post);
+      if (await _repo.SaveChangesAsync())
+      {
+        return RedirectToAction("Index");
+      }
+      return View(post);
     }
   }
 }

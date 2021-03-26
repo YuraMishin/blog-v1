@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Application</name>
+    </assembly>
+    <members>
+        <member name="T:Application.Repository.IRepository">
+            <summary>
+            Interface IRepository
+            </summary>
+        </member>
+        <member name="M:Application.Repository.IRepository.GetAllPosts(System.Int32)">
+            <summary>
+            Method gets all the posts
+            </summary>
+            <param name="id">id</param>
+            <returns>List&lt;Post&gt;</returns>
+        </member>
+        <member name="M:Application.Repository.IRepository.CreatePost(Domain.Post)">
+            <summary>
+            Method creates a post
+            </summary>
+            <param name="post">post</param>
+        </member>
+        <member name="M:Application.Repository.IRepository.ReadPost(System.Int32)">
+            <summary>
+            Method reads the post
+            </summary>
+            <param name="id">id</param>
+            <returns>Post</returns>
+        </member>
+        <member name="M:Application.Repository.IRepository.UpdatePost(Domain.Post)">
+            <summary>
+            Method updates the post
+            </summary>
+            <param name="post">post</param>
+        </member>
+        <member name="M:Application.Repository.IRepository.DeletePost(System.Int32)">
+            <summary>
+            Method deletes the post
+            </summary>
+            <param name="id">id</param>
+        </member>
+        <member name="M:Application.Repository.IRepository.SaveChangesAsync">
+            <summary>
+            Method saves changes
+            </summary>
+            <returns>Task&lt;bool&gt;</returns>
+        </member>
+        <member name="T:Application.Repository.Repository">
+            <summary>
+            Class Repository
+            </summary>
+        </member>
+        <member name="M:Application.Repository.Repository.#ctor(Persistence.AppDbContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="ctx">ctx</param>
+        </member>
+        <member name="M:Application.Repository.Repository.GetAllPosts(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Application.Repository.Repository.CreatePost(Domain.Post)">
+            <inheritdoc />
+        </member>
+        <member name="M:Application.Repository.Repository.ReadPost(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Application.Repository.Repository.UpdatePost(Domain.Post)">
+            <inheritdoc />
+        </member>
+        <member name="M:Application.Repository.Repository.DeletePost(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Application.Repository.Repository.SaveChangesAsync">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
