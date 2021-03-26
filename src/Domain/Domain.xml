@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Domain.Post">
+            <summary>
+            Class Post
+            </summary>
+        </member>
+        <member name="P:Domain.Post.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="P:Domain.Post.Body">
+            <summary>
+            Body
+            </summary>
+        </member>
+        <member name="P:Domain.Post.Created">
+            <summary>
+            Created
+            </summary>
+        </member>
+    </members>
+</doc>

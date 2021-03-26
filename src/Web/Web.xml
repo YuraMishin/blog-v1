@@ -11,15 +11,32 @@
         </member>
         <member name="M:Web.Controllers.HomeController.Index">
             <summary>
-            Method displays index UI
+            Method displays index UI.
+            GET: /
             </summary>
-            <returns></returns>
+            <returns>IActionResult</returns>
         </member>
         <member name="M:Web.Controllers.HomeController.Post">
             <summary>
-            Method displays post UI
+            Method displays post UI.
+            GET: /Home/Post
             </summary>
-            <returns></returns>
+            <returns>IActionResult</returns>
+        </member>
+        <member name="M:Web.Controllers.HomeController.Edit">
+            <summary>
+            Method displays edit post UI.
+            GET: /Home/Edit
+            </summary>
+            <returns>IActionResult</returns>
+        </member>
+        <member name="M:Web.Controllers.HomeController.Edit(Domain.Post)">
+            <summary>
+            Method handles edit post UI request.
+            POST: /Home/Edit
+            </summary>
+            <param name="post">post</param>
+            <returns>IActionResult</returns>
         </member>
         <member name="T:Web.Program">
             <summary>
