@@ -49,6 +49,7 @@
             App entry point
             </summary>
             <param name="args">args</param>
+            <returns>Task</returns>
         </member>
         <member name="M:Web.Program.CreateHostBuilder(System.String[])">
             <summary>

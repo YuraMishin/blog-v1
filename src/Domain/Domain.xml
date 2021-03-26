@@ -9,6 +9,11 @@
             Class Post
             </summary>
         </member>
+        <member name="P:Domain.Post.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
         <member name="P:Domain.Post.Title">
             <summary>
             Title

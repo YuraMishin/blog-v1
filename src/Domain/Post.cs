@@ -8,6 +8,11 @@ namespace Domain
   public class Post
   {
     /// <summary>
+    /// Id
+    /// </summary>
+    public int Id { get; set; }
+
+    /// <summary>
     /// Title
     /// </summary>
     public string Title { get; set; } = "";

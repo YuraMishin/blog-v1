@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Persistence;
 
 namespace Web
 {
@@ -40,6 +42,17 @@ namespace Web
     /// <param name="services">services</param>
     public void ConfigureServices(IServiceCollection services)
     {
+      #region DB connection
+      services.AddDbContext<AppDbContext>(
+        option =>
+        {
+          option.EnableSensitiveDataLogging();
+          option.EnableDetailedErrors();
+          option.UseNpgsql(
+            _configuration.GetConnectionString("MyBlog"));
+        });
+      #endregion
+
       services.AddControllersWithViews();
     }
 
