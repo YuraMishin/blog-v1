@@ -58,7 +58,11 @@ namespace Web
       // Auth
       services.AddIdentity<IdentityUser, IdentityRole>(options =>
         {
-          options.Password.RequiredLength = 4;
+          options.Password.RequireDigit = false;
+          options.Password.RequireLowercase = true;
+          options.Password.RequireNonAlphanumeric = false;
+          options.Password.RequireUppercase = false;
+          options.Password.RequiredLength = 1;
         })
         .AddEntityFrameworkStores<AppDbContext>();
 

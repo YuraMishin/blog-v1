@@ -1,6 +1,8 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,13 +32,35 @@ namespace Web
       {
         var context = services.GetRequiredService<AppDbContext>();
         var env = scope.ServiceProvider.GetRequiredService<IWebHostEnvironment>();
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+        var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
         // Create DB if it doesn't exist
+        //context.Database.EnsureCreated();
         await context.Database.MigrateAsync();
 
         if (env.IsDevelopment())
         {
+          var adminRole = new IdentityRole("Admin");
           // Seed data
+          if (!context.Roles.Any())
+          {
+            // create a role
+            await roleManager.CreateAsync(adminRole);
+          }
+
+          if (!context.Users.Any(user => user.UserName == "admin"))
+          {
+            // create an admin
+            var adminUser = new IdentityUser
+            {
+              UserName = "admin",
+              Email = "admin@mail.ru"
+            };
+            var result = await userManager.CreateAsync(adminUser, "q");
+            // add role to user + alter to await =)
+            userManager.AddToRoleAsync(adminUser, adminRole.Name).GetAwaiter().GetResult();
+          }
 
         }
       }

@@ -66,5 +66,28 @@
             </summary>
             <param name="modelBuilder">modelBuilder</param>
         </member>
+        <member name="T:Persistence.Migrations.AddIdentityTables">
+            <summary>
+            Сlass AddIdentityTables
+            </summary>
+        </member>
+        <member name="M:Persistence.Migrations.AddIdentityTables.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            Method performs migration
+            </summary>
+            <param name="migrationBuilder">migrationBuilder</param>
+        </member>
+        <member name="M:Persistence.Migrations.AddIdentityTables.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            Method rollovers migrationBuilder
+            </summary>
+            <param name="migrationBuilder">migrationBuilder</param>
+        </member>
+        <member name="M:Persistence.Migrations.AddIdentityTables.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Method executes migration
+            </summary>
+            <param name="modelBuilder">modelBuilder</param>
+        </member>
     </members>
 </doc>
