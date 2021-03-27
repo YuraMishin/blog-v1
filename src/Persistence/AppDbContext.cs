@@ -1,4 +1,5 @@
 using Domain;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence
@@ -6,7 +7,7 @@ namespace Persistence
   /// <summary>
   /// Class AppDbContext
   /// </summary>
-  public class AppDbContext : DbContext
+  public class AppDbContext : IdentityDbContext
   {
     /// <summary>
     /// Constructor

@@ -44,6 +44,13 @@
             <param name="post">post</param>
             <returns>IActionResult</returns>
         </member>
+        <member name="M:Web.Controllers.HomeController.Remove(System.Int32)">
+            <summary>
+            Method removes the post
+            </summary>
+            <param name="id">id</param>
+            <returns>Task&lt;IActionResult&gt;</returns>
+        </member>
         <member name="T:Web.Program">
             <summary>
             Class Program.

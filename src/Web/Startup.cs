@@ -1,6 +1,7 @@
 using Application.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -54,10 +55,18 @@ namespace Web
         });
       #endregion
 
+      // Auth
+      services.AddIdentity<IdentityUser, IdentityRole>(options =>
+        {
+          options.Password.RequiredLength = 4;
+        })
+        .AddEntityFrameworkStores<AppDbContext>();
+
       //Dependency Injection
       services.AddTransient<IRepository, Repository>();
 
       services.AddControllersWithViews();
+      services.AddRazorPages().AddRazorRuntimeCompilation();
     }
 
     /// <summary>
@@ -83,11 +92,15 @@ namespace Web
       app.UseStaticFiles();
       app.UseRouting();
 
+      // Auth
+      app.UseAuthentication();
+
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllerRoute(
           name: "default",
           pattern: "{controller=Home}/{action=Index}/{id?}");
+        endpoints.MapRazorPages();
       });
 
     }
