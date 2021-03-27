@@ -55,7 +55,7 @@ namespace Web
         });
       #endregion
 
-      // Auth
+      #region Auth
       services.AddIdentity<IdentityUser, IdentityRole>(options =>
         {
           options.Password.RequireDigit = false;
@@ -65,6 +65,11 @@ namespace Web
           options.Password.RequiredLength = 1;
         })
         .AddEntityFrameworkStores<AppDbContext>();
+      services.ConfigureApplicationCookie(options =>
+      {
+        options.LoginPath = "/Auth/Login";
+      });
+      #endregion
 
       //Dependency Injection
       services.AddTransient<IRepository, Repository>();
@@ -98,6 +103,7 @@ namespace Web
 
       // Auth
       app.UseAuthentication();
+      app.UseAuthorization();
 
       app.UseEndpoints(endpoints =>
       {

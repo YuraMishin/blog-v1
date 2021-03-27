@@ -4,6 +4,39 @@
         <name>Web</name>
     </assembly>
     <members>
+        <member name="T:Web.Controllers.AuthController">
+            <summary>
+            Сlass AuthController
+            </summary>
+        </member>
+        <member name="M:Web.Controllers.AuthController.#ctor(Microsoft.AspNetCore.Identity.SignInManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="signInManager">signInManager</param>
+        </member>
+        <member name="M:Web.Controllers.AuthController.Login">
+            <summary>
+            Method displays login UI.
+            GET: /auth/login
+            </summary>
+            <returns>IActionResult</returns>
+        </member>
+        <member name="M:Web.Controllers.AuthController.Login(Web.ViewModels.LoginViewModel)">
+            <summary>
+            Method handles login.
+            POST: /auth/login
+            </summary>
+            <param name="loginVM">loginVM</param>
+            <returns>Task&lt;IActionResult&gt;</returns>
+        </member>
+        <member name="M:Web.Controllers.AuthController.Logout">
+            <summary>
+            Method handles logout.
+            GET: /auth/logout
+            </summary>
+            <returns>Task&lt;IActionResult&gt;</returns>
+        </member>
         <member name="T:Web.Controllers.HomeController">
             <summary>
             Сlass HomeController
@@ -29,24 +62,43 @@
             </summary>
             <returns>IActionResult</returns>
         </member>
-        <member name="M:Web.Controllers.HomeController.Edit(System.Nullable{System.Int32})">
+        <member name="T:Web.Controllers.PanelController">
             <summary>
-            Method displays edit post UI.
-            GET: /Home/Edit
+            Class PanelController
+            </summary>
+        </member>
+        <member name="M:Web.Controllers.PanelController.#ctor(Application.Repository.IRepository)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="repo">repo</param>
+        </member>
+        <member name="M:Web.Controllers.PanelController.Index">
+            <summary>
+            Method displays index UI.
+            GET: /panel
             </summary>
             <returns>IActionResult</returns>
         </member>
-        <member name="M:Web.Controllers.HomeController.Edit(Domain.Post)">
+        <member name="M:Web.Controllers.PanelController.Edit(System.Nullable{System.Int32})">
+            <summary>
+            Method displays edit post UI.
+            GET: /panel/edit
+            </summary>
+            <returns>IActionResult</returns>
+        </member>
+        <member name="M:Web.Controllers.PanelController.Edit(Domain.Post)">
             <summary>
             Method handles edit post UI request.
-            POST: /Home/Edit
+            POST: /panel/edit
             </summary>
             <param name="post">post</param>
             <returns>IActionResult</returns>
         </member>
-        <member name="M:Web.Controllers.HomeController.Remove(System.Int32)">
+        <member name="M:Web.Controllers.PanelController.Remove(System.Int32)">
             <summary>
-            Method removes the post
+            Method removes the post.
+            GET: /panel/remove
             </summary>
             <param name="id">id</param>
             <returns>Task&lt;IActionResult&gt;</returns>
@@ -106,6 +158,21 @@
             </summary>
             <param name="app">app</param>
             <param name="logger">logger</param>
+        </member>
+        <member name="T:Web.ViewModels.LoginViewModel">
+            <summary>
+            Class LoginViewModel
+            </summary>
+        </member>
+        <member name="P:Web.ViewModels.LoginViewModel.UserName">
+            <summary>
+            UserName
+            </summary>
+        </member>
+        <member name="P:Web.ViewModels.LoginViewModel.Password">
+            <summary>
+            Password
+            </summary>
         </member>
     </members>
 </doc>

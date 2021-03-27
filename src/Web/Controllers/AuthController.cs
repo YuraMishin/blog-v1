@@ -47,7 +47,7 @@ namespace Web.Controllers
         false,
         false);
 
-      return RedirectToAction("Index", "Home");
+      return RedirectToAction("Index", "Panel");
     }
 
     /// <summary>
