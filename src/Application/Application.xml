@@ -9,11 +9,10 @@
             Interface IRepository
             </summary>
         </member>
-        <member name="M:Application.Repository.IRepository.GetAllPosts(System.Int32)">
+        <member name="M:Application.Repository.IRepository.GetAllPosts">
             <summary>
             Method gets all the posts
             </summary>
-            <param name="id">id</param>
             <returns>List&lt;Post&gt;</returns>
         </member>
         <member name="M:Application.Repository.IRepository.CreatePost(Domain.Post)">
@@ -58,7 +57,7 @@
             </summary>
             <param name="ctx">ctx</param>
         </member>
-        <member name="M:Application.Repository.Repository.GetAllPosts(System.Int32)">
+        <member name="M:Application.Repository.Repository.GetAllPosts">
             <inheritdoc />
         </member>
         <member name="M:Application.Repository.Repository.CreatePost(Domain.Post)">

@@ -12,9 +12,8 @@ namespace Application.Repository
     /// <summary>
     /// Method gets all the posts
     /// </summary>
-    /// <param name="id">id</param>
     /// <returns>List&lt;Post&gt;</returns>
-    List<Post> GetAllPosts(int id);
+    List<Post> GetAllPosts();
 
     /// <summary>
     /// Method creates a post

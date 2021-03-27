@@ -22,14 +22,14 @@
             </summary>
             <returns>IActionResult</returns>
         </member>
-        <member name="M:Web.Controllers.HomeController.Post">
+        <member name="M:Web.Controllers.HomeController.Post(System.Int32)">
             <summary>
             Method displays post UI.
             GET: /Home/Post
             </summary>
             <returns>IActionResult</returns>
         </member>
-        <member name="M:Web.Controllers.HomeController.Edit">
+        <member name="M:Web.Controllers.HomeController.Edit(System.Nullable{System.Int32})">
             <summary>
             Method displays edit post UI.
             GET: /Home/Edit
