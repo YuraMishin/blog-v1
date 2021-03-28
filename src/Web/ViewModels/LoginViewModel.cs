@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Web.ViewModels
 {
   /// <summary>
@@ -13,6 +15,7 @@ namespace Web.ViewModels
     /// <summary>
     /// Password
     /// </summary>
+    [DataType(DataType.Password)]
     public string Password { get; set; }
   }
 }
