@@ -3,7 +3,7 @@
 @{
 
 }
-
+<link href="~/lib/Trumbowyg-master/dist/ui/trumbowyg.min.css" rel="stylesheet" />
 <div>
     <form method="post"
           asp-controller="Panel"
@@ -16,12 +16,19 @@
         </div>
         <div>
             <label asp-for="Body"></label>
-            <input asp-for="Body" />
+            <textarea id="editor" asp-for="Body"></textarea>
         </div>
         <div>
             <label asp-for="Image"></label>
+            <input asp-for="CurrentImage" type="hidden" />
             <input asp-for="Image" />
         </div>
         <input type="submit" value="Submit" />
     </form>
 </div>
+
+@section Scripts {
+    <script src="~/lib/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/lib/Trumbowyg-master/dist/trumbowyg.min.js"></script>
+    <script>$('#editor').trumbowyg();</script>
+}

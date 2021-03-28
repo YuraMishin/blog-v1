@@ -23,6 +23,11 @@ namespace Web.ViewModels
     public string Body { get; set; } = "";
 
     /// <summary>
+    /// CurrentImage
+    /// </summary>
+    public string CurrentImage { get; set; } = "";
+
+    /// <summary>
     /// Image
     /// </summary>
     public IFormFile Image { get; set; } = null;

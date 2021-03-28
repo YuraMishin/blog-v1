@@ -52,13 +52,17 @@ namespace Web.Controllers
       {
         return View(new PostViewModel());
       }
-      var post = _repo.ReadPost((int)id);
-      return View(new PostViewModel
+      else
       {
-        Id = post.Id,
-        Title = post.Title,
-        Body = post.Body
-      });
+        var post = _repo.ReadPost((int)id);
+        return View(new PostViewModel
+        {
+          Id = post.Id,
+          Title = post.Title,
+          Body = post.Body,
+          CurrentImage = post.Image
+        });
+      }
     }
 
     /// <summary>
@@ -75,8 +79,17 @@ namespace Web.Controllers
         Id = postVM.Id,
         Title = postVM.Title,
         Body = postVM.Body,
-        Image = await _fileManager.SaveImage(postVM.Image)
       };
+
+      if (postVM.Image == null)
+      {
+        post.Image = postVM.CurrentImage;
+      }
+      else
+      {
+        post.Image = await _fileManager.SaveImage(postVM.Image);
+      }
+
       if (post.Id > 0)
       {
         _repo.UpdatePost(post);

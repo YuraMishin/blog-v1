@@ -204,6 +204,11 @@
             Body
             </summary>
         </member>
+        <member name="P:Web.ViewModels.PostViewModel.CurrentImage">
+            <summary>
+            CurrentImage
+            </summary>
+        </member>
         <member name="P:Web.ViewModels.PostViewModel.Image">
             <summary>
             Image
