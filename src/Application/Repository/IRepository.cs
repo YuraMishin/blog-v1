@@ -16,6 +16,13 @@ namespace Application.Repository
     List<Post> GetAllPosts();
 
     /// <summary>
+    /// Method gets all posts by category
+    /// </summary>
+    /// <param name="category">category</param>
+    /// <returns>List&lt;Post&gt;</returns>
+    List<Post> GetAllPosts(string category);
+
+    /// <summary>
     /// Method creates a post
     /// </summary>
     /// <param name="post">post</param>

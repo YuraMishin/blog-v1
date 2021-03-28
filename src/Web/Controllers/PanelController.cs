@@ -60,7 +60,10 @@ namespace Web.Controllers
           Id = post.Id,
           Title = post.Title,
           Body = post.Body,
-          CurrentImage = post.Image
+          CurrentImage = post.Image,
+          Description = post.Description,
+          Category = post.Category,
+          Tags = post.Tags
         });
       }
     }
@@ -79,6 +82,9 @@ namespace Web.Controllers
         Id = postVM.Id,
         Title = postVM.Title,
         Body = postVM.Body,
+        Description = postVM.Description,
+        Category = postVM.Category,
+        Tags = postVM.Tags
       };
 
       if (postVM.Image == null)

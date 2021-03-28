@@ -112,5 +112,28 @@
             </summary>
             <param name="modelBuilder">modelBuilder</param>
         </member>
+        <member name="T:Persistence.Migrations.AddMetaFieldsToPostsTable">
+            <summary>
+            Class AddMetaFieldsToPostsTable
+            </summary>
+        </member>
+        <member name="M:Persistence.Migrations.AddMetaFieldsToPostsTable.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            Method performs the migration
+            </summary>
+            <param name="migrationBuilder">migrationBuilder</param>
+        </member>
+        <member name="M:Persistence.Migrations.AddMetaFieldsToPostsTable.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            Method rollovers the migration
+            </summary>
+            <param name="migrationBuilder">migrationBuilder</param>
+        </member>
+        <member name="M:Persistence.Migrations.AddMetaFieldsToPostsTable.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Method executes the migration
+            </summary>
+            <param name="modelBuilder">modelBuilder</param>
+        </member>
     </members>
 </doc>

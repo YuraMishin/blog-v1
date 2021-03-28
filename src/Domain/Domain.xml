@@ -29,6 +29,21 @@
             Image
             </summary>
         </member>
+        <member name="P:Domain.Post.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:Domain.Post.Tags">
+            <summary>
+            Tags
+            </summary>
+        </member>
+        <member name="P:Domain.Post.Category">
+            <summary>
+            Category
+            </summary>
+        </member>
         <member name="P:Domain.Post.Created">
             <summary>
             Created

@@ -49,7 +49,7 @@
             <param name="repo">repo</param>
             <param name="fileManager">fileManager</param>
         </member>
-        <member name="M:Web.Controllers.HomeController.Index">
+        <member name="M:Web.Controllers.HomeController.Index(System.String)">
             <summary>
             Method displays index UI.
             GET: /
@@ -202,6 +202,21 @@
         <member name="P:Web.ViewModels.PostViewModel.Body">
             <summary>
             Body
+            </summary>
+        </member>
+        <member name="P:Web.ViewModels.PostViewModel.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:Web.ViewModels.PostViewModel.Tags">
+            <summary>
+            Tags
+            </summary>
+        </member>
+        <member name="P:Web.ViewModels.PostViewModel.Category">
+            <summary>
+            Category
             </summary>
         </member>
         <member name="P:Web.ViewModels.PostViewModel.CurrentImage">

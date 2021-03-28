@@ -1,12 +1,17 @@
 ﻿@model Post
 
-@{}
+@{
+    ViewBag.Title = Model.Title;
+    ViewBag.Description = Model.Description;
+    ViewBag.Keywords = $"{Model.Tags?.Replace(",", " ")} {Model.Category}";
+    var basePath = Context.Request.PathBase;
+}
 
 <div class="container">
     <div class="post">
         @if (!String.IsNullOrEmpty(Model.Image))
         {
-            var imagePath = $"/Image/{Model.Image}";
+            var imagePath = $"{basePath}/Image/{Model.Image}";
             <img src="@imagePath" />
             <span class="title">@Model.Title</span>
         }

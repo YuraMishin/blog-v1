@@ -23,6 +23,21 @@ namespace Web.ViewModels
     public string Body { get; set; } = "";
 
     /// <summary>
+    /// Description
+    /// </summary>
+    public string Description { get; set; } = "";
+
+    /// <summary>
+    /// Tags
+    /// </summary>
+    public string Tags { get; set; } = "";
+
+    /// <summary>
+    /// Category
+    /// </summary>
+    public string Category { get; set; } = "";
+
+    /// <summary>
     /// CurrentImage
     /// </summary>
     public string CurrentImage { get; set; } = "";

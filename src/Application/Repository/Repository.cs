@@ -29,6 +29,15 @@ namespace Application.Repository
     }
 
     /// <inheritdoc />
+    public List<Post> GetAllPosts(string category)
+    {
+      return _ctx
+        .Posts
+        .Where(post => post.Category.ToLower().Equals(category.ToLower()))
+        .ToList();
+    }
+
+    /// <inheritdoc />
     public void CreatePost(Post post)
     {
       _ctx.Posts.Add(post);

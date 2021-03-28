@@ -99,6 +99,7 @@ namespace Web
       if (_env.IsProduction())
       {
         logger.LogInformation("Production mode");
+        app.UseDeveloperExceptionPage();
       }
 
       app.UseStaticFiles();
