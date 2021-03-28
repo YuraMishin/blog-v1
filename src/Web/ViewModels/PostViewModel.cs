@@ -1,11 +1,11 @@
-using System;
+using Microsoft.AspNetCore.Http;
 
-namespace Domain
+namespace Web.ViewModels
 {
   /// <summary>
-  /// Class Post
+  /// Class PostViewModel
   /// </summary>
-  public class Post
+  public class PostViewModel
   {
     /// <summary>
     /// Id
@@ -25,11 +25,6 @@ namespace Domain
     /// <summary>
     /// Image
     /// </summary>
-    public string Image { get; set; } = "";
-
-    /// <summary>
-    /// Created
-    /// </summary>
-    public DateTime Created { get; set; } = DateTime.Now;
+    public IFormFile Image { get; set; } = null;
   }
 }

@@ -24,6 +24,11 @@
             Body
             </summary>
         </member>
+        <member name="P:Domain.Post.Image">
+            <summary>
+            Image
+            </summary>
+        </member>
         <member name="P:Domain.Post.Created">
             <summary>
             Created

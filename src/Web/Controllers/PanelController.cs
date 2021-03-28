@@ -1,8 +1,10 @@
 using System.Threading.Tasks;
+using Application.FileManager;
 using Application.Repository;
 using Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Web.ViewModels;
 
 namespace Web.Controllers
 {
@@ -13,14 +15,17 @@ namespace Web.Controllers
   public class PanelController : Controller
   {
     private readonly IRepository _repo;
+    private readonly IFileManager _fileManager;
 
     /// <summary>
     /// Constructor
     /// </summary>
     /// <param name="repo">repo</param>
-    public PanelController(IRepository repo)
+    /// <param name="fileManager">fileManager</param>
+    public PanelController(IRepository repo, IFileManager fileManager)
     {
       _repo = repo;
+      _fileManager = fileManager;
     }
 
     /// <summary>
@@ -45,21 +50,33 @@ namespace Web.Controllers
     {
       if (id == null)
       {
-        return View(new Post());
+        return View(new PostViewModel());
       }
       var post = _repo.ReadPost((int)id);
-      return View(post);
+      return View(new PostViewModel
+      {
+        Id = post.Id,
+        Title = post.Title,
+        Body = post.Body
+      });
     }
 
     /// <summary>
     /// Method handles edit post UI request.
     /// POST: /panel/edit
     /// </summary>
-    /// <param name="post">post</param>
+    /// <param name="postVM">postVM</param>
     /// <returns>IActionResult</returns>
     [HttpPost]
-    public async Task<IActionResult> Edit(Post post)
+    public async Task<IActionResult> Edit(PostViewModel postVM)
     {
+      var post = new Post
+      {
+        Id = postVM.Id,
+        Title = postVM.Title,
+        Body = postVM.Body,
+        Image = await _fileManager.SaveImage(postVM.Image)
+      };
       if (post.Id > 0)
       {
         _repo.UpdatePost(post);

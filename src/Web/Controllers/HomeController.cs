@@ -1,3 +1,4 @@
+using Application.FileManager;
 using Application.Repository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,14 +10,17 @@ namespace Web.Controllers
   public class HomeController : Controller
   {
     private readonly IRepository _repo;
+    private readonly IFileManager _fileManager;
 
     /// <summary>
     /// Constructor
     /// </summary>
     /// <param name="repo">repo</param>
-    public HomeController(IRepository repo)
+    /// <param name="fileManager">fileManager</param>
+    public HomeController(IRepository repo, IFileManager fileManager)
     {
       _repo = repo;
+      _fileManager = fileManager;
     }
 
     /// <summary>
@@ -40,6 +44,20 @@ namespace Web.Controllers
     {
       var post = _repo.ReadPost(id);
       return View(post);
+    }
+
+    /// <summary>
+    /// Method streams the image.
+    /// GET: /Image/{image}
+    /// </summary>
+    /// <param name="image"></param>
+    /// <returns></returns>
+    [HttpGet("/Image/{image}")]
+    public IActionResult Image(string image)
+    {
+      var mime = image.Substring(image.LastIndexOf('.') + 1);
+
+      return new FileStreamResult(_fileManager.ImageStream(image), $"image/{mime}");
     }
   }
 }

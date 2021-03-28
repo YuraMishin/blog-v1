@@ -4,6 +4,42 @@
         <name>Application</name>
     </assembly>
     <members>
+        <member name="T:Application.FileManager.FileManager">
+            <summary>
+            Class FileManager
+            </summary>
+        </member>
+        <member name="M:Application.FileManager.FileManager.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="config">config</param>
+        </member>
+        <member name="M:Application.FileManager.FileManager.SaveImage(Microsoft.AspNetCore.Http.IFormFile)">
+            <inheritdoc />
+        </member>
+        <member name="M:Application.FileManager.FileManager.ImageStream(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Application.FileManager.IFileManager">
+            <summary>
+            Interface IFileManager
+            </summary>
+        </member>
+        <member name="M:Application.FileManager.IFileManager.SaveImage(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Method saves the image
+            </summary>
+            <param name="image">image</param>
+            <returns></returns>
+        </member>
+        <member name="M:Application.FileManager.IFileManager.ImageStream(System.String)">
+            <summary>
+            Method streams the image
+            </summary>
+            <param name="image">image</param>
+            <returns></returns>
+        </member>
         <member name="T:Application.Repository.IRepository">
             <summary>
             Interface IRepository

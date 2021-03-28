@@ -1,3 +1,4 @@
+using Application.FileManager;
 using Application.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -71,8 +72,10 @@ namespace Web
       });
       #endregion
 
-      //Dependency Injection
+      #region Dependencies Injection
       services.AddTransient<IRepository, Repository>();
+      services.AddTransient<IFileManager, FileManager>();
+      #endregion
 
       services.AddControllersWithViews();
       services.AddRazorPages().AddRazorRuntimeCompilation();

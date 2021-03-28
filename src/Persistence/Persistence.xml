@@ -89,5 +89,28 @@
             </summary>
             <param name="modelBuilder">modelBuilder</param>
         </member>
+        <member name="T:Persistence.Migrations.AddImageFieldToPostTable">
+            <summary>
+            Class AddImageFieldToPostTable
+            </summary>
+        </member>
+        <member name="M:Persistence.Migrations.AddImageFieldToPostTable.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            Method performs the migration
+            </summary>
+            <param name="migrationBuilder">migrationBuilder</param>
+        </member>
+        <member name="M:Persistence.Migrations.AddImageFieldToPostTable.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            Method rollovers the migration
+            </summary>
+            <param name="migrationBuilder">migrationBuilder</param>
+        </member>
+        <member name="M:Persistence.Migrations.AddImageFieldToPostTable.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Method executes the migration
+            </summary>
+            <param name="modelBuilder">modelBuilder</param>
+        </member>
     </members>
 </doc>
