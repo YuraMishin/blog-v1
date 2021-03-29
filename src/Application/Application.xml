@@ -21,6 +21,15 @@
         <member name="M:Application.FileManager.FileManager.ImageStream(System.String)">
             <inheritdoc />
         </member>
+        <member name="M:Application.FileManager.FileManager.RemoveImage(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Application.FileManager.FileManager.ImageOptions">
+            <summary>
+            Method processes image via Magic Scaler
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Application.FileManager.IFileManager">
             <summary>
             Interface IFileManager
@@ -39,6 +48,13 @@
             </summary>
             <param name="image">image</param>
             <returns></returns>
+        </member>
+        <member name="M:Application.FileManager.IFileManager.RemoveImage(System.String)">
+            <summary>
+            Method removes the image file
+            </summary>
+            <param name="image">image</param>
+            <returns>bool</returns>
         </member>
         <member name="T:Application.Repository.IRepository">
             <summary>

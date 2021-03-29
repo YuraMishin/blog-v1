@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using PhotoSauce.MagicScaler;
 
 namespace Application.FileManager
 {
@@ -38,7 +39,7 @@ namespace Application.FileManager
         await using var fileStream = new FileStream(
           Path.Combine(savePath, fileName),
           FileMode.Create);
-        await image.CopyToAsync(fileStream);
+        MagicImageProcessor.ProcessImage(image.OpenReadStream(), fileStream, ImageOptions());
         return fileName;
       }
       catch (Exception e)
@@ -56,5 +57,36 @@ namespace Application.FileManager
         FileMode.Open,
         FileAccess.Read);
     }
+
+    /// <inheritdoc />
+    public bool RemoveImage(string image)
+    {
+      try
+      {
+        var file = Path.Combine(_imagePath, image);
+        if (File.Exists(file))
+          File.Delete(file);
+        return true;
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine(e.Message);
+        return false;
+      }
+    }
+
+    /// <summary>
+    /// Method processes image via Magic Scaler
+    /// </summary>
+    /// <returns></returns>
+    private ProcessImageSettings ImageOptions() => new ProcessImageSettings
+    {
+      Width = 800,
+      Height = 500,
+      ResizeMode = CropScaleMode.Crop,
+      SaveFormat = FileFormat.Jpeg,
+      JpegQuality = 100,
+      JpegSubsampleMode = ChromaSubsampleMode.Subsample420
+    };
   }
 }

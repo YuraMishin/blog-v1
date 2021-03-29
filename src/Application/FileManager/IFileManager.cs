@@ -22,5 +22,12 @@ namespace Application.FileManager
     /// <param name="image">image</param>
     /// <returns></returns>
     FileStream ImageStream(string image);
+
+    /// <summary>
+    /// Method removes the image file
+    /// </summary>
+    /// <param name="image">image</param>
+    /// <returns>bool</returns>
+    bool RemoveImage(string image);
   }
 }

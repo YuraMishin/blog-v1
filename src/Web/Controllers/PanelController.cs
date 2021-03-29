@@ -93,6 +93,8 @@ namespace Web.Controllers
       }
       else
       {
+        if (!string.IsNullOrEmpty(postVM.CurrentImage))
+        { _fileManager.RemoveImage(postVM.CurrentImage); }
         post.Image = await _fileManager.SaveImage(postVM.Image);
       }
 
