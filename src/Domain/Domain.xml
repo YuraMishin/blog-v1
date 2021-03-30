@@ -4,6 +4,46 @@
         <name>Domain</name>
     </assembly>
     <members>
+        <member name="T:Domain.Comments.Comment">
+            <summary>
+            Class Comment
+            </summary>
+        </member>
+        <member name="P:Domain.Comments.Comment.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Domain.Comments.Comment.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:Domain.Comments.Comment.Created">
+            <summary>
+            Created
+            </summary>
+        </member>
+        <member name="T:Domain.Comments.MainComment">
+            <summary>
+            Class MainComment
+            </summary>
+        </member>
+        <member name="P:Domain.Comments.MainComment.SubComments">
+            <summary>
+            SubComments
+            </summary>
+        </member>
+        <member name="T:Domain.Comments.SubComment">
+            <summary>
+            SubComment
+            </summary>
+        </member>
+        <member name="P:Domain.Comments.SubComment.MainCommentId">
+            <summary>
+            MainCommentId
+            </summary>
+        </member>
         <member name="T:Domain.Post">
             <summary>
             Class Post
@@ -47,6 +87,11 @@
         <member name="P:Domain.Post.Created">
             <summary>
             Created
+            </summary>
+        </member>
+        <member name="P:Domain.Post.MainComments">
+            <summary>
+            MainComments
             </summary>
         </member>
     </members>

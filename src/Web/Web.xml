@@ -71,6 +71,14 @@
             <param name="image"></param>
             <returns></returns>
         </member>
+        <member name="M:Web.Controllers.HomeController.Comment(Web.ViewModels.CommentViewModel)">
+            <summary>
+            Method handles comments.
+            POST: /Home/Comment
+            </summary>
+            <param name="commentVM">commentVM</param>
+            <returns>Task&lt;IActionResult&gt;</returns>
+        </member>
         <member name="T:Web.Controllers.PanelController">
             <summary>
             Class PanelController
@@ -168,6 +176,26 @@
             </summary>
             <param name="app">app</param>
             <param name="logger">logger</param>
+        </member>
+        <member name="T:Web.ViewModels.CommentViewModel">
+            <summary>
+            Class CommentViewModel
+            </summary>
+        </member>
+        <member name="P:Web.ViewModels.CommentViewModel.PostId">
+            <summary>
+            PostId
+            </summary>
+        </member>
+        <member name="P:Web.ViewModels.CommentViewModel.MainCommentId">
+            <summary>
+            MainCommentId
+            </summary>
+        </member>
+        <member name="P:Web.ViewModels.CommentViewModel.Message">
+            <summary>
+            Message
+            </summary>
         </member>
         <member name="T:Web.ViewModels.LoginViewModel">
             <summary>

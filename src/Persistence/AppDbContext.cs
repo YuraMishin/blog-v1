@@ -1,4 +1,5 @@
 using Domain;
+using Domain.Comments;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +23,16 @@ namespace Persistence
     /// Posts
     /// </summary>
     public DbSet<Post> Posts { get; set; }
+
+    /// <summary>
+    /// MainComments
+    /// </summary>
+    public DbSet<MainComment> MainComments { get; set; }
+
+    /// <summary>
+    /// SubComments
+    /// </summary>
+    public DbSet<SubComment> SubComments { get; set; }
     #endregion
   }
 }

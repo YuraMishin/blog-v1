@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain;
+using Domain.Comments;
+using Microsoft.EntityFrameworkCore;
 using Persistence;
 
 namespace Application.Repository
@@ -47,7 +49,10 @@ namespace Application.Repository
     /// <inheritdoc />
     public Post ReadPost(int id)
     {
-      return _ctx.Posts.FirstOrDefault(post => post.Id == id);
+      return _ctx.Posts
+        .Include(p => p.MainComments)
+        .ThenInclude(mc => mc.SubComments)
+        .FirstOrDefault(p => p.Id == id);
     }
 
     /// <inheritdoc />
@@ -70,6 +75,12 @@ namespace Application.Repository
         return true;
       }
       return false;
+    }
+
+    /// <inheritdoc />
+    public void AddSubComment(SubComment comment)
+    {
+      _ctx.SubComments.Add(comment);
     }
   }
 }

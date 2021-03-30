@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Domain;
+using Domain.Comments;
 
 namespace Application.Repository
 {
@@ -52,5 +53,11 @@ namespace Application.Repository
     /// </summary>
     /// <returns>Task&lt;bool&gt;</returns>
     Task<bool> SaveChangesAsync();
+
+    /// <summary>
+    /// Method adds subcomment
+    /// </summary>
+    /// <param name="comment">comment</param>
+    void AddSubComment(SubComment comment);
   }
 }

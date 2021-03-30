@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Domain.Comments;
 
 namespace Domain
 {
@@ -46,5 +48,10 @@ namespace Domain
     /// Created
     /// </summary>
     public DateTime Created { get; set; } = DateTime.Now;
+
+    /// <summary>
+    /// MainComments
+    /// </summary>
+    public List<MainComment> MainComments { get; set; }
   }
 }

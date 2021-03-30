@@ -105,6 +105,12 @@
             </summary>
             <returns>Task&lt;bool&gt;</returns>
         </member>
+        <member name="M:Application.Repository.IRepository.AddSubComment(Domain.Comments.SubComment)">
+            <summary>
+            Method adds subcomment
+            </summary>
+            <param name="comment">comment</param>
+        </member>
         <member name="T:Application.Repository.Repository">
             <summary>
             Class Repository
@@ -135,6 +141,9 @@
             <inheritdoc />
         </member>
         <member name="M:Application.Repository.Repository.SaveChangesAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Application.Repository.Repository.AddSubComment(Domain.Comments.SubComment)">
             <inheritdoc />
         </member>
     </members>

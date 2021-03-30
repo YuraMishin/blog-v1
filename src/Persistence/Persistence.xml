@@ -20,6 +20,16 @@
             Posts
             </summary>
         </member>
+        <member name="P:Persistence.AppDbContext.MainComments">
+            <summary>
+            MainComments
+            </summary>
+        </member>
+        <member name="P:Persistence.AppDbContext.SubComments">
+            <summary>
+            SubComments
+            </summary>
+        </member>
         <member name="T:Persistence.Migrations.Initial">
             <summary>
             Class Initial
@@ -130,6 +140,29 @@
             <param name="migrationBuilder">migrationBuilder</param>
         </member>
         <member name="M:Persistence.Migrations.AddMetaFieldsToPostsTable.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Method executes the migration
+            </summary>
+            <param name="modelBuilder">modelBuilder</param>
+        </member>
+        <member name="T:Persistence.Migrations.AddCommentSection">
+            <summary>
+            Class AddCommentSection
+            </summary>
+        </member>
+        <member name="M:Persistence.Migrations.AddCommentSection.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            Method performs the migration
+            </summary>
+            <param name="migrationBuilder">migrationBuilder</param>
+        </member>
+        <member name="M:Persistence.Migrations.AddCommentSection.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            Method rollovers the migration
+            </summary>
+            <param name="migrationBuilder">migrationBuilder</param>
+        </member>
+        <member name="M:Persistence.Migrations.AddCommentSection.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <summary>
             Method executes the migration
             </summary>
