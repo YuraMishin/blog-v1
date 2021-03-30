@@ -9,11 +9,12 @@
             Сlass AuthController
             </summary>
         </member>
-        <member name="M:Web.Controllers.AuthController.#ctor(Microsoft.AspNetCore.Identity.SignInManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+        <member name="M:Web.Controllers.AuthController.#ctor(Microsoft.AspNetCore.Identity.SignInManager{Microsoft.AspNetCore.Identity.IdentityUser},Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser})">
             <summary>
             Constructor
             </summary>
             <param name="signInManager">signInManager</param>
+            <param name="userManager">userManager</param>
         </member>
         <member name="M:Web.Controllers.AuthController.Login">
             <summary>
@@ -35,6 +36,20 @@
             Method handles logout.
             GET: /auth/logout
             </summary>
+            <returns>Task&lt;IActionResult&gt;</returns>
+        </member>
+        <member name="M:Web.Controllers.AuthController.Register">
+            <summary>
+            Method displays register UI
+            </summary>
+            <returns>IActionResult</returns>
+        </member>
+        <member name="M:Web.Controllers.AuthController.Register(Web.ViewModels.RegisterViewModel)">
+            <summary>
+            Method handles user registration.
+            POST: /auth/register
+            </summary>
+            <param name="registerVM">registerVM</param>
             <returns>Task&lt;IActionResult&gt;</returns>
         </member>
         <member name="T:Web.Controllers.HomeController">
@@ -255,6 +270,26 @@
         <member name="P:Web.ViewModels.PostViewModel.Image">
             <summary>
             Image
+            </summary>
+        </member>
+        <member name="T:Web.ViewModels.RegisterViewModel">
+            <summary>
+            Class RegisterViewModel
+            </summary>
+        </member>
+        <member name="P:Web.ViewModels.RegisterViewModel.Email">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="P:Web.ViewModels.RegisterViewModel.Password">
+            <summary>
+            Password
+            </summary>
+        </member>
+        <member name="P:Web.ViewModels.RegisterViewModel.ConfirmPassword">
+            <summary>
+            ConfirmPassword
             </summary>
         </member>
     </members>

@@ -10,11 +10,13 @@ namespace Web.ViewModels
     /// <summary>
     /// UserName
     /// </summary>
+    [Required]
     public string UserName { get; set; }
 
     /// <summary>
     /// Password
     /// </summary>
+    [Required]
     [DataType(DataType.Password)]
     public string Password { get; set; }
   }

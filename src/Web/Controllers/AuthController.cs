@@ -11,14 +11,19 @@ namespace Web.Controllers
   public class AuthController : Controller
   {
     private readonly SignInManager<IdentityUser> _signInManager;
+    private readonly UserManager<IdentityUser> _userManager;
 
     /// <summary>
     /// Constructor
     /// </summary>
     /// <param name="signInManager">signInManager</param>
-    public AuthController(SignInManager<IdentityUser> signInManager)
+    /// <param name="userManager">userManager</param>
+    public AuthController(
+      SignInManager<IdentityUser> signInManager,
+      UserManager<IdentityUser> userManager)
     {
       _signInManager = signInManager;
+      _userManager = userManager;
     }
 
     /// <summary>
@@ -41,13 +46,28 @@ namespace Web.Controllers
     [HttpPost]
     public async Task<IActionResult> Login(LoginViewModel loginVM)
     {
-      var result = await _signInManager.PasswordSignInAsync(
-        loginVM.UserName,
-        loginVM.Password,
-        false,
-        false);
+      if (!ModelState.IsValid)
+      {
+        return RedirectToAction("Index", "Home");
+      }
 
-      return RedirectToAction("Index", "Panel");
+      var result = await _signInManager.PasswordSignInAsync(loginVM.UserName, loginVM.Password, false, false);
+
+      if (!result.Succeeded)
+      {
+        return View(loginVM);
+      }
+
+      var user = await _userManager.FindByNameAsync(loginVM.UserName);
+
+      var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
+
+      if (isAdmin)
+      {
+        return RedirectToAction("Index", "Panel");
+      }
+
+      return RedirectToAction("Index", "Home");
     }
 
     /// <summary>
@@ -60,6 +80,47 @@ namespace Web.Controllers
     {
       await _signInManager.SignOutAsync();
       return RedirectToAction("Index", "Home");
+    }
+
+    /// <summary>
+    /// Method displays register UI
+    /// </summary>
+    /// <returns>IActionResult</returns>
+    [HttpGet]
+    public IActionResult Register()
+    {
+      return View(new RegisterViewModel());
+    }
+
+    /// <summary>
+    /// Method handles user registration.
+    /// POST: /auth/register
+    /// </summary>
+    /// <param name="registerVM">registerVM</param>
+    /// <returns>Task&lt;IActionResult&gt;</returns>
+    [HttpPost]
+    public async Task<IActionResult> Register(RegisterViewModel registerVM)
+    {
+      if (!ModelState.IsValid)
+      {
+        return View(registerVM);
+      }
+
+      var user = new IdentityUser
+      {
+        UserName = registerVM.Email,
+        Email = registerVM.Email
+      };
+
+      var result = await _userManager.CreateAsync(user, "password");
+
+      if (result.Succeeded)
+      {
+        await _signInManager.SignInAsync(user, false);
+        return RedirectToAction("Index", "Home");
+      }
+
+      return View(registerVM);
     }
   }
 }
