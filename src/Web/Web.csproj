@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\content\blog\" />
+    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
   <PropertyGroup>

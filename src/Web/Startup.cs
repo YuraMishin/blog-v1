@@ -3,6 +3,7 @@ using Application.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -76,6 +77,11 @@ namespace Web
       services.AddTransient<IRepository, Repository>();
       services.AddTransient<IFileManager, FileManager>();
       #endregion
+
+      services.AddMvc(options =>
+      {
+        options.CacheProfiles.Add("Monthly", new CacheProfile { Duration = 60 * 60 * 24 * 7 * 4 });
+      });
 
       services.AddControllersWithViews();
       services.AddRazorPages().AddRazorRuntimeCompilation();

@@ -49,6 +49,7 @@ namespace Web.Controllers
     /// <param name="image"></param>
     /// <returns></returns>
     [HttpGet("/Image/{image}")]
+    [ResponseCache(CacheProfileName = "Monthly")]
     public IActionResult Image(string image) =>
     new FileStreamResult(
       _fileManager.ImageStream(image),
