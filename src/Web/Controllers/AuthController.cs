@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Web.Services.Email;
 using Web.ViewModels;
 
 namespace Web.Controllers
@@ -12,18 +13,22 @@ namespace Web.Controllers
   {
     private readonly SignInManager<IdentityUser> _signInManager;
     private readonly UserManager<IdentityUser> _userManager;
+    private IEmailService _emailService;
 
     /// <summary>
     /// Constructor
     /// </summary>
     /// <param name="signInManager">signInManager</param>
     /// <param name="userManager">userManager</param>
+    /// <param name="emailService">emailService</param>
     public AuthController(
       SignInManager<IdentityUser> signInManager,
-      UserManager<IdentityUser> userManager)
+      UserManager<IdentityUser> userManager,
+      IEmailService emailService)
     {
       _signInManager = signInManager;
       _userManager = userManager;
+      _emailService = emailService;
     }
 
     /// <summary>
@@ -117,6 +122,7 @@ namespace Web.Controllers
       if (result.Succeeded)
       {
         await _signInManager.SignInAsync(user, false);
+        await _emailService.SendEmail(user.Email, "Welcome", "Thank you for registering!");
         return RedirectToAction("Index", "Home");
       }
 

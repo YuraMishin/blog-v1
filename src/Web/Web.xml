@@ -4,17 +4,48 @@
         <name>Web</name>
     </assembly>
     <members>
+        <member name="T:Web.Configuration.SmtpSettings">
+            <summary>
+            Class SmtpSettings
+            </summary>
+        </member>
+        <member name="P:Web.Configuration.SmtpSettings.From">
+            <summary>
+            From
+            </summary>
+        </member>
+        <member name="P:Web.Configuration.SmtpSettings.Server">
+            <summary>
+            Server
+            </summary>
+        </member>
+        <member name="P:Web.Configuration.SmtpSettings.Port">
+            <summary>
+            Port
+            </summary>
+        </member>
+        <member name="P:Web.Configuration.SmtpSettings.Username">
+            <summary>
+            Username
+            </summary>
+        </member>
+        <member name="P:Web.Configuration.SmtpSettings.Password">
+            <summary>
+            Password
+            </summary>
+        </member>
         <member name="T:Web.Controllers.AuthController">
             <summary>
             Сlass AuthController
             </summary>
         </member>
-        <member name="M:Web.Controllers.AuthController.#ctor(Microsoft.AspNetCore.Identity.SignInManager{Microsoft.AspNetCore.Identity.IdentityUser},Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+        <member name="M:Web.Controllers.AuthController.#ctor(Microsoft.AspNetCore.Identity.SignInManager{Microsoft.AspNetCore.Identity.IdentityUser},Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},Web.Services.Email.IEmailService)">
             <summary>
             Constructor
             </summary>
             <param name="signInManager">signInManager</param>
             <param name="userManager">userManager</param>
+            <param name="emailService">emailService</param>
         </member>
         <member name="M:Web.Controllers.AuthController.Login">
             <summary>
@@ -155,6 +186,34 @@
             </summary>
             <param name="args">args</param>
             <returns>IHostBuilder</returns>
+        </member>
+        <member name="T:Web.Services.Email.EmailService">
+            <summary>
+            Class EmailService
+            </summary>
+        </member>
+        <member name="M:Web.Services.Email.EmailService.#ctor(Microsoft.Extensions.Options.IOptions{Web.Configuration.SmtpSettings})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="options">options</param>
+        </member>
+        <member name="M:Web.Services.Email.EmailService.SendEmail(System.String,System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Web.Services.Email.IEmailService">
+            <summary>
+            Interface IEmailService
+            </summary>
+        </member>
+        <member name="M:Web.Services.Email.IEmailService.SendEmail(System.String,System.String,System.String)">
+            <summary>
+            Method sends an email
+            </summary>
+            <param name="email">email</param>
+            <param name="subject">subject</param>
+            <param name="message">message</param>
+            <returns></returns>
         </member>
         <member name="T:Web.Startup">
             <summary>

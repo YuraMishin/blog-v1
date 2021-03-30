@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Persistence;
+using Web.Configuration;
+using Web.Services.Email;
 
 namespace Web
 {
@@ -46,6 +48,8 @@ namespace Web
     /// <param name="services">services</param>
     public void ConfigureServices(IServiceCollection services)
     {
+      services.Configure<SmtpSettings>(_configuration.GetSection("SmtpSettings"));
+
       #region DB connection
       services.AddDbContext<AppDbContext>(
         option =>
@@ -76,6 +80,7 @@ namespace Web
       #region Dependencies Injection
       services.AddTransient<IRepository, Repository>();
       services.AddTransient<IFileManager, FileManager>();
+      services.AddSingleton<IEmailService, EmailService>();
       #endregion
 
       services.AddMvc(options =>
