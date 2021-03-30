@@ -81,11 +81,11 @@ namespace Application.FileManager
     /// <returns></returns>
     private ProcessImageSettings ImageOptions() => new ProcessImageSettings
     {
-      Width = 800,
-      Height = 500,
+      Width = 100,
+      Height = 100,
       ResizeMode = CropScaleMode.Crop,
       SaveFormat = FileFormat.Jpeg,
-      JpegQuality = 100,
+      JpegQuality = 50,
       JpegSubsampleMode = ChromaSubsampleMode.Subsample420
     };
   }

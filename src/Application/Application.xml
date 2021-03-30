@@ -67,12 +67,13 @@
             </summary>
             <returns>List&lt;Post&gt;</returns>
         </member>
-        <member name="M:Application.Repository.IRepository.GetAllPosts(System.String)">
+        <member name="M:Application.Repository.IRepository.GetAllPosts(System.Int32,System.String)">
             <summary>
-            Method gets all posts by category
+            Method gets all posts with pagination
             </summary>
+            <param name="pageNumber">pageNumber</param>
             <param name="category">category</param>
-            <returns>List&lt;Post&gt;</returns>
+            <returns></returns>
         </member>
         <member name="M:Application.Repository.IRepository.CreatePost(Domain.Post)">
             <summary>
@@ -125,7 +126,7 @@
         <member name="M:Application.Repository.Repository.GetAllPosts">
             <inheritdoc />
         </member>
-        <member name="M:Application.Repository.Repository.GetAllPosts(System.String)">
+        <member name="M:Application.Repository.Repository.GetAllPosts(System.Int32,System.String)">
             <inheritdoc />
         </member>
         <member name="M:Application.Repository.Repository.CreatePost(Domain.Post)">
@@ -145,6 +146,36 @@
         </member>
         <member name="M:Application.Repository.Repository.AddSubComment(Domain.Comments.SubComment)">
             <inheritdoc />
+        </member>
+        <member name="T:Application.ViewModels.IndexViewModel">
+            <summary>
+            Class IndexViewModel
+            </summary>
+        </member>
+        <member name="P:Application.ViewModels.IndexViewModel.PageNumber">
+            <summary>
+            PageNumber
+            </summary>
+        </member>
+        <member name="P:Application.ViewModels.IndexViewModel.PageCount">
+            <summary>
+            PageCount
+            </summary>
+        </member>
+        <member name="P:Application.ViewModels.IndexViewModel.NextPage">
+            <summary>
+            NextPage
+            </summary>
+        </member>
+        <member name="P:Application.ViewModels.IndexViewModel.Category">
+            <summary>
+            Category
+            </summary>
+        </member>
+        <member name="P:Application.ViewModels.IndexViewModel.Posts">
+            <summary>
+            Posts
+            </summary>
         </member>
     </members>
 </doc>

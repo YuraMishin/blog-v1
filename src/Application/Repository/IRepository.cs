@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Application.ViewModels;
 using Domain;
 using Domain.Comments;
 
@@ -17,11 +18,12 @@ namespace Application.Repository
     List<Post> GetAllPosts();
 
     /// <summary>
-    /// Method gets all posts by category
+    /// Method gets all posts with pagination
     /// </summary>
+    /// <param name="pageNumber">pageNumber</param>
     /// <param name="category">category</param>
-    /// <returns>List&lt;Post&gt;</returns>
-    List<Post> GetAllPosts(string category);
+    /// <returns></returns>
+    IndexViewModel GetAllPosts(int pageNumber, string category);
 
     /// <summary>
     /// Method creates a post
@@ -59,5 +61,7 @@ namespace Application.Repository
     /// </summary>
     /// <param name="comment">comment</param>
     void AddSubComment(SubComment comment);
+
+
   }
 }

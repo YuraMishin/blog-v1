@@ -1,10 +1,13 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.ViewModels;
 using Domain;
 using Domain.Comments;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+
 
 namespace Application.Repository
 {
@@ -31,12 +34,28 @@ namespace Application.Repository
     }
 
     /// <inheritdoc />
-    public List<Post> GetAllPosts(string category)
+    public IndexViewModel GetAllPosts(int pageNumber, string category)
     {
-      return _ctx
-        .Posts
-        .Where(post => post.Category.ToLower().Equals(category.ToLower()))
-        .ToList();
+      int pageSize = 1;
+      int skipAmount = pageSize * (pageNumber - 1);
+      var query = _ctx.Posts.AsQueryable();
+
+      if (!String.IsNullOrEmpty(category))
+      { query = query.Where(post => post.Category.ToLower().Equals(category.ToLower())); }
+
+      int postsCount = query.Count();
+
+      return new IndexViewModel
+      {
+        PageNumber = pageNumber,
+        PageCount = (int)Math.Ceiling((double)postsCount / pageSize),
+        NextPage = postsCount > (skipAmount + pageSize),
+        Category = category,
+        Posts = query
+          .Skip(skipAmount)
+          .Take(pageSize)
+          .ToList()
+      };
     }
 
     /// <inheritdoc />
