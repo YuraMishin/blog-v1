@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Helpers;
 using Application.ViewModels;
 using Domain;
 using Domain.Comments;
@@ -44,12 +45,14 @@ namespace Application.Repository
       { query = query.Where(post => post.Category.ToLower().Equals(category.ToLower())); }
 
       int postsCount = query.Count();
+      int pageCount = (int)Math.Ceiling((double)postsCount / pageSize);
 
       return new IndexViewModel
       {
         PageNumber = pageNumber,
-        PageCount = (int)Math.Ceiling((double)postsCount / pageSize),
+        PageCount = pageCount,
         NextPage = postsCount > (skipAmount + pageSize),
+        Pages = PageHelper.PageNumbers(pageNumber, pageCount).ToList(),
         Category = category,
         Posts = query
           .Skip(skipAmount)

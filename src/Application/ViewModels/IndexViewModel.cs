@@ -32,5 +32,10 @@ namespace Application.ViewModels
     /// Posts
     /// </summary>
     public IEnumerable<Post> Posts { get; set; }
+
+    /// <summary>
+    /// Pages
+    /// </summary>
+    public IEnumerable<int> Pages { get; internal set; }
   }
 }

@@ -56,6 +56,19 @@
             <param name="image">image</param>
             <returns>bool</returns>
         </member>
+        <member name="T:Application.Helpers.PageHelper">
+            <summary>
+            Class PageHelper
+            </summary>
+        </member>
+        <member name="M:Application.Helpers.PageHelper.PageNumbers(System.Int32,System.Int32)">
+            <summary>
+            Method creates page numbers
+            </summary>
+            <param name="pageNumber">pageNumber</param>
+            <param name="pageCount">pageCount</param>
+            <returns></returns>
+        </member>
         <member name="T:Application.Repository.IRepository">
             <summary>
             Interface IRepository
@@ -175,6 +188,11 @@
         <member name="P:Application.ViewModels.IndexViewModel.Posts">
             <summary>
             Posts
+            </summary>
+        </member>
+        <member name="P:Application.ViewModels.IndexViewModel.Pages">
+            <summary>
+            Pages
             </summary>
         </member>
     </members>
