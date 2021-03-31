@@ -80,7 +80,7 @@
             </summary>
             <returns>List&lt;Post&gt;</returns>
         </member>
-        <member name="M:Application.Repository.IRepository.GetAllPosts(System.Int32,System.String)">
+        <member name="M:Application.Repository.IRepository.GetAllPosts(System.Int32,System.String,System.String)">
             <summary>
             Method gets all posts with pagination
             </summary>
@@ -139,7 +139,7 @@
         <member name="M:Application.Repository.Repository.GetAllPosts">
             <inheritdoc />
         </member>
-        <member name="M:Application.Repository.Repository.GetAllPosts(System.Int32,System.String)">
+        <member name="M:Application.Repository.Repository.GetAllPosts(System.Int32,System.String,System.String)">
             <inheritdoc />
         </member>
         <member name="M:Application.Repository.Repository.CreatePost(Domain.Post)">

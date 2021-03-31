@@ -37,5 +37,10 @@ namespace Application.ViewModels
     /// Pages
     /// </summary>
     public IEnumerable<int> Pages { get; internal set; }
+
+    /// <summary>
+    /// Search
+    /// </summary>
+    public string Search { get; set; }
   }
 }

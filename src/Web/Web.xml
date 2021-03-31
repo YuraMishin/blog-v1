@@ -95,7 +95,7 @@
             <param name="repo">repo</param>
             <param name="fileManager">fileManager</param>
         </member>
-        <member name="M:Web.Controllers.HomeController.Index(System.Int32,System.String)">
+        <member name="M:Web.Controllers.HomeController.Index(System.Int32,System.String,System.String)">
             <summary>
             Method displays index UI.
             GET: /
@@ -213,7 +213,7 @@
             <param name="email">email</param>
             <param name="subject">subject</param>
             <param name="message">message</param>
-            <returns></returns>
+            <returns>Task</returns>
         </member>
         <member name="T:Web.Startup">
             <summary>

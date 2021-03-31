@@ -22,8 +22,9 @@ namespace Application.Repository
     /// </summary>
     /// <param name="pageNumber">pageNumber</param>
     /// <param name="category">category</param>
+    /// <param name="search">search</param>
     /// <returns></returns>
-    IndexViewModel GetAllPosts(int pageNumber, string category);
+    IndexViewModel GetAllPosts(int pageNumber, string category, string search);
 
     /// <summary>
     /// Method creates a post

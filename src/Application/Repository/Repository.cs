@@ -35,14 +35,19 @@ namespace Application.Repository
     }
 
     /// <inheritdoc />
-    public IndexViewModel GetAllPosts(int pageNumber, string category)
+    public IndexViewModel GetAllPosts(int pageNumber, string category, string search)
     {
       int pageSize = 1;
       int skipAmount = pageSize * (pageNumber - 1);
-      var query = _ctx.Posts.AsQueryable();
+      var query = _ctx.Posts.AsNoTracking().AsQueryable();
 
       if (!String.IsNullOrEmpty(category))
       { query = query.Where(post => post.Category.ToLower().Equals(category.ToLower())); }
+
+      if (!String.IsNullOrEmpty(search))
+        query = query.Where(x => EF.Functions.Like(x.Title, $"%{search}%")
+                                 || EF.Functions.Like(x.Body, $"%{search}%")
+                                 || EF.Functions.Like(x.Description, $"%{search}%"));
 
       int postsCount = query.Count();
       int pageCount = (int)Math.Ceiling((double)postsCount / pageSize);
